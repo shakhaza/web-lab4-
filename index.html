@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Registration</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <h1>Event Registration</h1>
+    <button id="theme-btn" type="button">Dark theme</button>
+  </header>
+
+  <main>
+    <!-- 1. Event selection -->
+    <section id="events">
+      <h2>1. Choose an event</h2>
+      <p id="selected-label" class="status">No event selected yet.</p>
+      <div class="cards">
+        <article class="event-card">
+          <h3>Web Design Workshop</h3>
+          <p class="event-date">12 May, 10:00</p>
+          <p>Hands-on session about layouts, colors and responsive design.</p>
+          <button class="select-btn" type="button">Select</button>
+        </article>
+        <article class="event-card">
+          <h3>JavaScript Quiz</h3>
+          <p class="event-date">14 May, 14:00</p>
+          <p>A friendly team quiz on JavaScript basics, DOM and events.</p>
+          <button class="select-btn" type="button">Select</button>
+        </article>
+        <article class="event-card">
+          <h3>IT Career Talk</h3>
+          <p class="event-date">16 May, 16:30</p>
+          <p>Graduates and engineers share how to start a career in IT.</p>
+          <button class="select-btn" type="button">Select</button>
+        </article>
+      </div>
+    </section>
+
+    <!-- 2. Registration form -->
+    <section id="registration">
+      <h2>2. Registration form</h2>
+      <form id="reg-form" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" maxlength="40" autocomplete="name" placeholder="Aigerim Nurlanova">
+          <small id="name-counter" class="counter">0 / 40 characters</small>
+          <span id="name-error" class="error-message"></span>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" placeholder="name@example.com">
+          <span id="email-error" class="error-message"></span>
+        </div>
+
+        <div class="field">
+          <label for="group">Student group</label>
+          <input id="group" name="group" type="text" placeholder="IT-2101">
+          <span id="group-error" class="error-message"></span>
+        </div>
+
+        <div class="field">
+          <input id="event" name="event" type="hidden">
+          <span id="event-error" class="error-message"></span>
+        </div>
+
+        <div class="field">
+          <label class="check">
+            <input id="agree" name="agree" type="checkbox">
+            I agree to the event rules
+          </label>
+          <span id="agree-error" class="error-message"></span>
+        </div>
+
+        <button type="submit">Register</button>
+        <p id="form-status" class="status" role="status"></p>
+      </form>
+    </section>
+
+    <!-- 3. Registration result (empty on load) -->
+    <section id="result">
+      <h2>3. Registration result</h2>
+      <div id="confirmation" class="confirmation" hidden></div>
+      <p id="reg-count" class="status"></p>
+      <ul id="reg-list"></ul>
+    </section>
+
+    <!-- 4. Guest directory (REST API) -->
+    <section id="guests">
+      <h2>4. Guest directory</h2>
+      <button id="load-btn" type="button">Load Guests</button>
+      <p id="guest-status" class="status" role="status"></p>
+      <div id="guest-list" class="cards"></div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
